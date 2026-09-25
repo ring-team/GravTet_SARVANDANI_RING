@@ -1,0 +1,32 @@
+# Ignore personal paths and generated files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments (recreated by setup)
+.venv/
+venv/
+
+# Build artifacts (libs are committed in software_GravTet_execution/backend/build/lib, but caches are not)
+**/backend/build/CMakeCache.txt
+**/backend/build/CMakeFiles/
+**/backend/build/Makefile
+**/backend/build/cmake_install.cmake
+**/backend/build/*.make
+**/backend/build/CMakeFiles/
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+
+# Node.js (cover real dirs + symlinks created by setup)
+**/node_modules
+**/node_modules/
+**/dist
+**/dist/
+
+# Logs
+*.log
+logs/

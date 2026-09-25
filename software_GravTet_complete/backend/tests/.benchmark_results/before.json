@@ -1,0 +1,19 @@
+{
+  "label": "before",
+  "repeats": 5,
+  "warmup": 1,
+  "legacy_cube": {
+    "median_ms": 0.4767910031659994,
+    "spread_ms": 0.1235410018125549,
+    "checksum": 0.0,
+    "num_sources": null,
+    "input_mode": null
+  },
+  "tetra_mesh": {
+    "median_ms": 10120.130999999674,
+    "spread_ms": 762.5349589980033,
+    "checksum": 0.0,
+    "num_sources": null,
+    "input_mode": null
+  }
+}

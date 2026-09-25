@@ -1,0 +1,443 @@
+/*
+ * Styles for synthetic 3D model previews (cube, sphere, cylinders, catalog shapes): flex layout, panels, and canvas chrome.
+ * Shared across `*3DView.tsx` components that import this file.
+ */
+.cube-3d-container {
+  display: flex;
+  gap: 0;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background: #ffffff;
+}
+
+.cube-3d-view {
+  flex: 1;
+  background: #f3f4f6;
+  border-radius: 0;
+  border: none;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+}
+
+.cube-3d-view canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.cube-controls {
+  width: 300px;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: #ffffff;
+  border: none;
+  border-left: 1px solid #e5e7eb;
+  border-radius: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  height: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+}
+
+.cube-controls h3 {
+  margin: 0 0 -8px 0;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.model-view-export {
+  margin: 0 0 -8px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.model-view-export-btn {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #2563eb;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.model-view-export-btn:hover:not(:disabled) {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.model-view-export-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.model-view-export-hint {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #6b7280;
+}
+
+.model-view-export-error {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #b91c1c;
+}
+
+.mesh-source-grid-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mesh-source-grid-heading {
+  margin: 0 0 2px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.mesh-source-count-label,
+.mesh-source-count-value {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.3;
+  opacity: 0.9;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.control-group label {
+  font-size: 14px;
+  color: #374151;
+  font-weight: 500;
+}
+
+.control-group input {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+  transition: border-color 150ms ease;
+}
+
+/* Native steppers: always visible and slightly taller than the text field. */
+.control-group input[type='number'] {
+  min-height: 2.625rem;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-right: 6px;
+  -moz-appearance: number-input;
+  appearance: auto;
+}
+
+.control-group input[type='number']::-webkit-inner-spin-button,
+.control-group input[type='number']::-webkit-outer-spin-button {
+  opacity: 1;
+  height: 2rem;
+  min-height: 2rem;
+  margin-left: 4px;
+  cursor: pointer;
+  -webkit-appearance: inner-spin-button;
+  transform: scale(1.2);
+  transform-origin: center center;
+}
+
+/* Dot-decimal text + native stepper overlay (mesh size / refinement sliders). */
+.control-number-field {
+  position: relative;
+  width: 100%;
+}
+
+.control-number-field__text {
+  padding-right: 2.75rem;
+  min-height: 2.625rem;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+.control-number-field__spinner {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  width: 2.5rem;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  background: transparent;
+  color: transparent;
+  caret-color: transparent;
+  box-shadow: none;
+}
+
+.control-number-field__spinner:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.control-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.help-text {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: normal;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Model 3D View Styles (for FourCubes and other models) */
+.model-3d-view {
+  display: flex;
+  gap: 0;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background: #ffffff;
+}
+
+.model-3d-controls {
+  width: 400px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+  height: 100%;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.model-3d-controls h3 {
+  margin: 0 0 24px 0;
+  color: #111827;
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.model-3d-controls .parameter-group {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.model-3d-controls .parameter-group:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.model-3d-controls .parameter-group h4 {
+  margin: 0 0 16px 0;
+  color: #374151;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 12px;
+  background: #f9fafb;
+  border-radius: 6px;
+  border-left: 3px solid #3b82f6;
+}
+
+.model-3d-controls .input-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  margin: 0;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 150ms ease;
+}
+
+.model-3d-controls .input-group:hover {
+  background-color: #f9fafb;
+}
+
+.model-3d-controls .input-group:last-child {
+  border-bottom: none;
+}
+
+.model-3d-controls .input-group label {
+  font-size: 14px;
+  color: #4b5563;
+  font-weight: 500;
+  flex: 1;
+  margin-right: 16px;
+  text-align: left;
+}
+
+.model-3d-controls .input-group input {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 120px;
+  text-align: right;
+  background: #ffffff;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.model-3d-controls .input-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.model-3d-canvas {
+  flex: 1;
+  background: #f3f4f6;
+  border-radius: 0;
+  border: none;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+}
+
+.model-3d-canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Responsive design for tablets and mobile */
+@media (max-width: 1024px) {
+  /* Cube 3D Container (for Cube, Sphere, Cylinder, etc.) */
+  .cube-3d-container {
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .cube-controls {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    margin-bottom: 20px;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+    flex-shrink: 0;
+    background: #ffffff;
+  }
+
+  .cube-3d-view {
+    width: 100%;
+    height: 500px;
+    min-height: 400px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+  }
+
+  /* Model 3D View (for FourCubes and complex models) */
+  .model-3d-view {
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .model-3d-controls {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    margin-bottom: 20px;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: none;
+    flex-shrink: 0;
+  }
+
+  .model-3d-canvas {
+    width: 100%;
+    height: 500px;
+    min-height: 400px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .cube-controls {
+    padding: 15px;
+  }
+
+  .cube-3d-view {
+    height: 400px;
+    min-height: 300px;
+  }
+
+  .model-3d-controls {
+    padding: 15px;
+  }
+
+  .model-3d-canvas {
+    height: 400px;
+    min-height: 300px;
+  }
+}
+
+
+.render-style-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  margin-top: 2px;
+}
+
+.render-style-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #374151;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.cube-controls .render-style-option input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}

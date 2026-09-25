@@ -1,0 +1,102 @@
+/* Landing page */
+.landing-card {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.landing-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 32px;
+  background: rgba(15, 23, 42, 0.92);
+  border-radius: 16px;
+  box-shadow:
+    0 24px 60px rgba(15, 23, 42, 0.6),
+    0 0 0 1px rgba(148, 163, 184, 0.3);
+  text-align: center;
+  color: #e5e7eb;
+}
+
+.landing-title {
+  margin: 0 0 12px;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.landing-subtitle {
+  margin: 0 0 32px;
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+.landing-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.landing-button {
+  min-width: 160px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.landing-button-gravity {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  color: white;
+  box-shadow:
+    0 10px 25px rgba(37, 99, 235, 0.5),
+    0 0 0 1px rgba(56, 189, 248, 0.5);
+}
+
+.landing-button-gravity:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 30px rgba(37, 99, 235, 0.6),
+    0 0 0 1px rgba(56, 189, 248, 0.7);
+}
+
+.landing-button-initial {
+  background: linear-gradient(135deg, #059669, #0d9488);
+  color: white;
+  box-shadow:
+    0 10px 25px rgba(13, 148, 136, 0.45),
+    0 0 0 1px rgba(52, 211, 153, 0.45);
+}
+
+.landing-button-initial:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 30px rgba(13, 148, 136, 0.55),
+    0 0 0 1px rgba(52, 211, 153, 0.65);
+}
+
+.landing-button-magnetic {
+  background: rgba(15, 23, 42, 0.8);
+  color: #e5e7eb;
+  border-color: rgba(148, 163, 184, 0.7);
+}
+
+.landing-button-magnetic:hover {
+  background: rgba(15, 23, 42, 0.98);
+  border-color: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .landing-inner {
+    padding: 32px 20px;
+  }
+
+  .landing-buttons {
+    flex-direction: column;
+  }
+}

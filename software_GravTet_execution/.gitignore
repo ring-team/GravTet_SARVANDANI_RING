@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+backend/.venv/
+backend/build/
+!backend/build/lib/
+!backend/build/lib/**
+backend/tests/
+dist/
+build/
+*.log
+.pytest_cache/
+

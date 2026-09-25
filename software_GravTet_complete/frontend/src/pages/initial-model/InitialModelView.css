@@ -1,0 +1,235 @@
+/*
+ * Layout and theme for InitialModelView: side panels, 3D viewport, forms, and responsive behavior.
+ */
+.initial-model-controls {
+  width: 300px; /* Keep left panel reasonable so the 3D view is wide */
+}
+
+.initial-model-right {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* No 3D view until a file produces a regular grid (`importedField`). */
+.initial-model-right-empty {
+  flex: 1;
+  min-height: 0;
+  background: #eef1f6;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.initial-model-viewport {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  align-items: stretch;
+  gap: 0;
+}
+
+.initial-model-colorbar {
+  flex-shrink: 0;
+  width: 124px;
+  padding: 10px 8px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  background: rgba(35, 40, 50, 0.97);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e5e7eb;
+  font-size: 11px;
+  line-height: 1.35;
+  min-height: 0;
+}
+
+.initial-model-colorbar-title {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  margin-bottom: 10px;
+  color: #f9fafb;
+  text-align: center;
+}
+
+.initial-model-colorbar-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-height: 120px;
+  max-height: min(48vh, 320px);
+  gap: 6px;
+  min-width: 0;
+}
+
+.initial-model-colorbar-ramp {
+  flex: 1;
+  width: 18px;
+  min-height: 80px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Square gradient in SVG; parent clips to rounded rect — avoids wrong-hue slivers at curved edges */
+.initial-model-colorbar-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  min-height: 0;
+}
+
+.initial-model-colorbar-tick {
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  max-width: 100%;
+  word-break: break-all;
+  color: #d1d5db;
+}
+
+.initial-model-colorbar-tick-max {
+  color: #fca5a5;
+}
+
+.initial-model-colorbar-tick-min {
+  color: #93c5fd;
+}
+
+.initial-model-cmap-picker {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.initial-model-cmap-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 11px;
+  color: #d1d5db;
+  user-select: none;
+  line-height: 1.2;
+}
+
+.initial-model-colorbar .initial-model-cmap-option input[type='radio'] {
+  width: 15px;
+  height: 15px;
+  min-width: 15px;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: #60a5fa;
+  cursor: pointer;
+}
+
+.initial-model-canvas {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  /* Matches Three.js scene background for imported terrain (letterboxing) */
+  background: #2f3644;
+  overflow: hidden;
+}
+
+.initial-model-canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.initial-model-mode-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.initial-model-mode-btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #111827;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.initial-model-mode-btn.active {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.08);
+  color: #1d4ed8;
+}
+
+.initial-model-layer-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.initial-model-layer-row input {
+  width: 100%;
+}
+
+/* Initial model (Excel import): file row + mesh checkbox — avoid global .control-group input on checkbox */
+.initial-model-upload-block {
+  margin-top: 4px;
+}
+
+.initial-model-file-label {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.initial-model-mesh-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.initial-model-mesh-row span {
+  line-height: 1.3;
+}
+
+.initial-model-controls .initial-model-mesh-row input[type='checkbox'] {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  min-height: 22px;
+  max-width: 22px;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  box-shadow: none;
+  accent-color: #3b82f6;
+  cursor: pointer;
+  align-self: center;
+  vertical-align: middle;
+}
+

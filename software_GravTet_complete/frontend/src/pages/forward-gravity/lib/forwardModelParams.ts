@@ -1,0 +1,90 @@
+/** Shared forward-gravity model-shape parameters used by all forward solvers. */
+export interface ForwardModelParams {
+  modelType: string | null
+  cubeX?: number
+  cubeY?: number
+  cubeZ?: number
+  sphereRadius?: number
+  ellipsoidA?: number
+  ellipsoidB?: number
+  ellipsoidC?: number
+  verticalCylinderRadius?: number
+  verticalCylinderHeight?: number
+  horizontalCylinderRadius?: number
+  horizontalCylinderLength?: number
+  faultedBlockX?: number
+  faultedBlockY?: number
+  faultedBlockZ?: number
+  faultedBlockFaultOffset?: number
+  faultedBlockH?: number
+  faultedBlockDensity?: number
+  sphereH?: number
+  sphereDensity?: number
+  ellipsoidH?: number
+  ellipsoidDensity?: number
+  verticalCylinderH?: number
+  verticalCylinderDensity?: number
+  horizontalCylinderH?: number
+  horizontalCylinderDensity?: number
+  layeredBasinX?: number
+  layeredBasinY?: number
+  layeredBasinLayer1Thickness?: number
+  layeredBasinLayer2Thickness?: number
+  layeredBasinLayer3Thickness?: number
+  layeredBasinLayer1Density?: number
+  layeredBasinLayer2Density?: number
+  layeredBasinLayer3Density?: number
+  voxelModelX?: number
+  voxelModelY?: number
+  voxelModelZ?: number
+  voxelModelVoxelSize?: number
+  cube1X?: number
+  cube1Y?: number
+  cube1Z?: number
+  cube1H?: number
+  cube1Density?: number
+  cube2X?: number
+  cube2Y?: number
+  cube2Z?: number
+  cube2H?: number
+  cube2Density?: number
+  cube3X?: number
+  cube3Y?: number
+  cube3Z?: number
+  cube3H?: number
+  cube3Density?: number
+  cube4X?: number
+  cube4Y?: number
+  cube4Z?: number
+  cube4H?: number
+  cube4Density?: number
+  spacingX?: number
+  spacingY?: number
+  cube1OffsetX?: number
+  cube1OffsetY?: number
+  cube2OffsetX?: number
+  cube2OffsetY?: number
+  cube3OffsetX?: number
+  cube3OffsetY?: number
+  cube4OffsetX?: number
+  cube4OffsetY?: number
+  /** Valley-mountain half-space (forward UI). */
+  valleyMountainX?: number
+  valleyMountainY?: number
+  valleyMountainZ?: number
+  /** Sinusoidal topography amplitude (m); legacy alias ``valleyMountainHeight``. */
+  valleyMountainAmplitude?: number
+  valleyMountainHeight?: number
+  /** Sinusoidal topography wavelength (m); legacy alias ``valleyMountainDepth``. */
+  valleyMountainWavelength?: number
+  valleyMountainDepth?: number
+  valleyMountainMountainDensity?: number
+  valleyMountainValleyDensity?: number
+  valleyMountainHalfSpaceDensity?: number
+  h: number
+  density: number
+  /** Gmsh Tetrahedral mesh size sliders (lifted from App sharedUnstructuredMesh). */
+  gmshTargetElementSize?: number
+  gmshSurfaceRefinement?: number
+  gmshLocalRefinementNearEdges?: number
+}

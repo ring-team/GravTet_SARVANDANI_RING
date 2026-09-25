@@ -1,0 +1,21 @@
+{
+  "label": "after",
+  "repeats": 5,
+  "warmup": 1,
+  "legacy_cube": {
+    "median_ms": 0.5125839998072479,
+    "spread_ms": 0.13437400048132986,
+    "checksum": 824.104985,
+    "num_sources": 216,
+    "input_mode": "synthetic_legacy",
+    "native_entrypoint": "barnes_hut_forward_gravity_model"
+  },
+  "tetra_mesh": {
+    "median_ms": 14834.371458000533,
+    "spread_ms": 260.7489170040935,
+    "checksum": 565.841726,
+    "num_sources": 1703736,
+    "input_mode": "tetra_mesh",
+    "native_entrypoint": "barnes_hut_forward_gravity_tetra_mesh"
+  }
+}

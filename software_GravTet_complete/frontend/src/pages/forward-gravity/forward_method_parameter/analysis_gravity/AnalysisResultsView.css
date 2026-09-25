@@ -1,0 +1,426 @@
+.analysis-results-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.analysis-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.analysis-top-line {
+  display: flex;
+  gap: 16px;
+  flex-wrap: nowrap;
+  align-items: center;
+  white-space: nowrap;
+  overflow-x: auto;
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+
+.analysis-metric-line {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-bottom: 2px;
+}
+
+.analysis-metric-line-scalars {
+  flex-wrap: wrap;
+  white-space: normal;
+  row-gap: 4px;
+}
+
+.analysis-scalar-metric {
+  font-size: 12px;
+  color: #334155;
+  white-space: nowrap;
+}
+
+.analysis-metric-line label {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.analysis-map-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin: 0 0 8px;
+  padding: 6px 8px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.analysis-main-toolbar {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.analysis-toolbar-sep {
+  width: 1px;
+  height: 18px;
+  background: #cbd5e1;
+  margin: 0 2px;
+  flex-shrink: 0;
+}
+
+.analysis-toolbar-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #334155;
+  white-space: nowrap;
+}
+
+.analysis-toolbar-num {
+  width: 76px;
+  min-width: 4.75rem;
+  flex-shrink: 0;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+}
+
+/* Relative RMS on-screen: long scientific labels stay compact (live UI only). */
+.analysis-map-capture-root:not(.analysis-map-capture-export-clone) .color-scale span {
+  font-size: 10px;
+  line-height: 1.25;
+  max-width: 9rem;
+  text-align: center;
+  word-break: normal;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.analysis-map-capture-root:not(.analysis-map-capture-export-clone) .color-scale {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 0;
+  row-gap: 6px;
+}
+
+.analysis-map-capture-root:not(.analysis-map-capture-export-clone) .color-scale .scale-gradient {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  width: 100%;
+}
+
+.analysis-map-capture-root:not(.analysis-map-capture-export-clone) .color-scale .color-scale-min {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: start;
+  text-align: left;
+}
+
+.analysis-map-capture-root:not(.analysis-map-capture-export-clone) .color-scale .color-scale-mid {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: center;
+  text-align: center;
+  font-size: 10px;
+}
+
+.analysis-map-capture-root:not(.analysis-map-capture-export-clone) .color-scale .color-scale-max {
+  grid-column: 3;
+  grid-row: 2;
+  justify-self: end;
+  text-align: right;
+}
+
+/*
+ * Export clone only: larger readable type + room for axis/colorbar ends.
+ * Does not apply to the live forward/analysis map (no layout width change there).
+ */
+.analysis-map-capture-root.analysis-map-capture-export-clone,
+.analysis-map-capture-root.analysis-map-capture-export-clone .gravity-map,
+.analysis-map-capture-root.analysis-map-capture-export-clone .map-wrapper,
+.analysis-map-capture-root.analysis-map-capture-export-clone .color-scale-wrapper {
+  overflow: visible !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone {
+  display: block !important;
+  height: auto !important;
+  max-height: none !important;
+  min-height: 0 !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone > .gravity-map {
+  display: flex !important;
+  flex-direction: column !important;
+  height: auto !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .map-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .map-square-cluster {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .y-axis-labels {
+  min-width: 72px !important;
+  width: 72px !important;
+  overflow: visible !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .map-wrapper .axis-spacer {
+  min-width: 72px !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .color-scale-spacer {
+  display: none !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .map-square-frame {
+  display: flex !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .y-axis-labels,
+.analysis-map-capture-root.analysis-map-capture-export-clone .x-axis-labels {
+  font-size: 36px !important;
+  font-weight: 800 !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .y-axis-labels .axis-label,
+.analysis-map-capture-root.analysis-map-capture-export-clone .x-axis-labels .axis-label {
+  font-size: 36px !important;
+  font-weight: 800 !important;
+  color: #000 !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .axis-title,
+.analysis-map-capture-root.analysis-map-capture-export-clone .x-axis-title-top-inside,
+.analysis-map-capture-root.analysis-map-capture-export-clone .y-axis-title-right {
+  font-size: 36px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .y-axis-title-left {
+  display: none !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .x-axis-labels {
+  min-height: 40px !important;
+  margin-bottom: 8px !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .color-scale-wrapper {
+  display: flex !important;
+  justify-content: center !important;
+  grid-template-columns: none !important;
+  flex: 0 0 auto !important;
+  margin-top: 28px !important;
+  margin-bottom: 8px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 24px !important;
+  padding-top: 4px !important;
+  box-sizing: border-box !important;
+  height: auto !important;
+  min-height: 90px !important;
+  position: relative !important;
+  z-index: 5 !important;
+  overflow: visible !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Export: gradient width matches map width; labels anchored to same span. */
+.analysis-map-capture-root.analysis-map-capture-export-clone .color-scale {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  grid-template-rows: auto auto !important;
+  column-gap: 0 !important;
+  row-gap: 10px !important;
+  align-items: center !important;
+  font-size: 36px !important;
+  padding: 0 0 2px !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  justify-self: start !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .color-scale .scale-gradient {
+  grid-column: 1 / -1 !important;
+  grid-row: 1 !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 36px !important;
+  min-height: 36px !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .color-scale span {
+  font-size: 36px !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  max-width: none !important;
+  word-break: normal !important;
+  white-space: nowrap !important;
+  padding: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #000 !important;
+  text-align: center !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .color-scale .color-scale-min {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  justify-self: start !important;
+  text-align: left !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .color-scale .color-scale-max {
+  grid-column: 3 !important;
+  grid-row: 2 !important;
+  justify-self: end !important;
+  text-align: right !important;
+}
+
+.analysis-map-capture-root.analysis-map-capture-export-clone .color-scale .color-scale-mid {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+  justify-self: center !important;
+  text-align: center !important;
+  font-size: 36px !important;
+  font-weight: 800 !important;
+}
+
+.analysis-export-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.analysis-map-formula-note {
+  margin: 4px 0 8px;
+  font-size: 11px;
+  line-height: 1.35;
+  color: #64748b;
+  max-width: 52rem;
+}
+
+.analysis-export-btn {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  flex-shrink: 0;
+  white-space: nowrap;
+  background: #f8fafc;
+  color: #334155;
+  cursor: pointer;
+}
+
+.analysis-export-btn:hover:not(:disabled) {
+  background: #e2e8f0;
+}
+
+.analysis-export-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.analysis-map-capture-root {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.analysis-map-capture-root > .gravity-map {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.analysis-map-wrap {
+  margin-top: 2px;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.analysis-map-caption {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.analysis-map-wrap .gravity-map {
+  min-height: 0;
+  height: 100%;
+}
+
+.analysis-map-wrap .map-wrapper {
+  min-height: 0;
+  max-height: 100%;
+}
+
+.analysis-map-wrap .map-wrapper--square {
+  justify-content: center;
+  align-items: center;
+}
+
+.analysis-map-wrap .map-square-frame {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.analysis-map-wrap .map-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+.analysis-map-wrap .x-axis-title-top-inside,
+.analysis-map-wrap .y-axis-title-right {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+}
