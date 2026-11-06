@@ -1,0 +1,85 @@
+.app-layout {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-layout > main {
+  flex: 1;
+  min-height: 0;
+}
+
+:root {
+  --app-header-height: 70px;
+  --app-footer-height: 0px;
+}
+
+.app-layout--with-footer {
+  --app-footer-height: 36px;
+}
+
+.app-footer {
+  flex-shrink: 0;
+  height: var(--app-footer-height);
+  width: 100%;
+  border-top: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.app-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  height: 100%;
+  padding: 0 24px;
+}
+
+.app-footer-brand {
+  font-weight: 600;
+  color: #374151;
+}
+
+.app-footer-sep {
+  color: #d1d5db;
+}
+
+.app-footer-copy {
+  color: #6b7280;
+}
+
+.app-footer-license-btn {
+  margin-left: 4px;
+  padding: 4px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #f9fafb;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.app-footer-license-btn:hover {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+@media (max-width: 768px) {
+  .app-footer {
+    height: auto;
+    min-height: var(--app-footer-height);
+  }
+
+  .app-footer-inner {
+    padding: 8px 16px;
+    justify-content: center;
+    text-align: center;
+  }
+}

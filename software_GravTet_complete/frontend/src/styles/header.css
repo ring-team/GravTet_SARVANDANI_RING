@@ -1,0 +1,110 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 40px;
+  height: 70px;
+  width: 100%;
+  flex-shrink: 0;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+  z-index: 1000;
+}
+
+.header-logo-button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin-right: 12px;
+  margin-top: -6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.header-logo-button:hover {
+  opacity: 0.9;
+}
+
+.header-logo {
+  height: 70px;
+  width: auto;
+  display: block;
+}
+
+.nav-button {
+  height: 48px;
+  padding: 0 16px;
+  border: 2px solid transparent; /* keep constant width to avoid layout shift */
+  background: transparent;
+  color: #64748b;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 200ms ease;
+  position: relative;
+}
+
+.nav-button:hover {
+  background: #f0f9ff;
+  border-color: #93c5fd;
+  color: #2563eb;
+}
+
+.nav-button.active {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  border-color: #000000;
+  color: #ffffff;
+  font-weight: normal;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+/* On desktop: nav buttons in a row (same order as before) */
+.header-nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Menu button: visible only on screens smaller than tablet */
+.header-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #374151;
+}
+.header-menu-btn:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+.header-menu-icon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  box-shadow: 0 8px 0 currentColor, 0 16px 0 currentColor;
+}
+
+/* On small screens: show menu button, hide nav buttons */
+@media (max-width: 1024px) {
+  .header-menu-btn {
+    display: flex;
+  }
+  .header-nav-buttons {
+    display: none !important;
+  }
+}
